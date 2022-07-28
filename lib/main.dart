@@ -1,15 +1,15 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:todo_algoriza/core/global_var.dart';
 import 'package:todo_algoriza/core/util/color_manager.dart';
 import 'package:todo_algoriza/features/home/domain/datasourse/cache_helper.dart';
 import 'package:todo_algoriza/features/home/presentation/cubit/home_cubit.dart';
-import 'package:todo_algoriza/features/home/presentation/pages/home.dart';
 import 'package:todo_algoriza/features/onboarding/presentation/cubit/onboarding_cubit.dart';
-import 'package:todo_algoriza/features/onboarding/presentation/pages/on_boarding_screen.dart';
 import 'package:todo_algoriza/features/search/presentation/cubit/search_cubit.dart';
 import 'package:todo_algoriza/features/splash/presentation/pages/splash_screen.dart';
+import 'package:workmanager/workmanager.dart';
 
 import 'core/bloc_observer.dart';
 import 'features/create_task_screen/presentation/cubit/task_screen_cubit.dart';
@@ -21,7 +21,6 @@ void main() {
     () async {
       await CacheHelper.init();
       bool? isDark = CacheHelper.getData(key: 'isDark');
-
       runApp(MyApp(isDark));
     },
     blocObserver: MyBlocObserver(),
@@ -43,7 +42,9 @@ class MyApp extends StatelessWidget {
               ..changeAppMode(fromShared: isDark)),
         BlocProvider(create: (BuildContext context) => OnboardingCubit()),
         BlocProvider(create: (BuildContext context) => CreateTaskScreenCubit()),
-        BlocProvider(create: (BuildContext context) => ScheduleScreenCubit()),
+        BlocProvider(
+            create: (BuildContext context) =>
+                ScheduleScreenCubit()..createNotificationDate(db)),
         BlocProvider(create: (BuildContext context) => SearchCubit()),
       ],
       child: BlocConsumer<HomeCubit, HomeState>(
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: light,
               darkTheme: dark,
-              home: OnBoardingScreen(),
+              home: SplashScreen(),
             ),
           );
         },

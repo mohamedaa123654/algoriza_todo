@@ -4,8 +4,9 @@ class AppStrings {
   static const onBoardingTitle3 = "Search Screen";
   static const onBoardingTitle4 = "Schedule Screen";
   static const onBoardingSubTitle1 =
-      "Add Tasks, Set Task To Complete, Set Task To Favorite, Swap to Delete Task";
-  static const onBoardingSubTitle2 = "You Can Change Color Mode";
+      "Add Tasks, Set Task To Complete, Set Task To Favorite and Swap to Delete Task";
+  static const onBoardingSubTitle2 =
+      "You Can Change Color Mode and Notification for daily tasks";
   static const onBoardingSubTitle3 = "You Can Search For Taske";
   static const onBoardingSubTitle4 = "You Can Find Tasks of any day ";
   static const skip = "Skip";

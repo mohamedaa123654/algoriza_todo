@@ -50,7 +50,11 @@ class TaskItem extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          navigateTo(context, TaskScreen(model: model));
+                          navigateTo(
+                              context,
+                              TaskScreen(
+                                model: model,
+                              ));
                         },
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.61,

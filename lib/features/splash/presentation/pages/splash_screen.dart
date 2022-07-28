@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:todo_algoriza/features/home/presentation/pages/home.dart';
-import 'package:todo_algoriza/features/notification/data/datasources/notification_api.dart';
 import '../../../../core/components/components.dart';
 import '../../../../core/util/color_manager.dart';
 import '../../../../core/util/constants_manager.dart';
@@ -38,20 +37,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+    // Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+
     super.initState();
     _startDelay();
-    // NotificationApi.init(initScheduled: true);
-    // listenNotifications();
   }
-
-// void initState(){
-//   super.initState();
-//  NotificationApi.init();
-//   listenNotifications();}
-  // void listenNotifications() =>
-  //     NotificationApi.onNotifications.stream.listen(onClickedNotification);
-  // void onClickedNotification(String? payload) =>
-  //     navigateTo(context, HomeScreen());
 
   @override
   Widget build(BuildContext context) {

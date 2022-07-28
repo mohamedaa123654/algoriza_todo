@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:todo_algoriza/features/onboarding/data/models/onboarding.dart';
 
 import '../../../../core/util/color_manager.dart';
